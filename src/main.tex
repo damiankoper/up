@@ -83,7 +83,7 @@ Wiktor Pieklik, 241282\\
 \newpage
 
 \section{Cel ćwiczenia}
-Celem ćwiczenia było zapoznanie się z urządzeniem służącym do analizy parametrów sieciowych używanym w automatyce. Na zajęciach dostępny był analizator parametrów sieci EMA-90N firmy Contrel, który umożliwia kontrolę stanu sieci elektrycznej poprzez mierzenie parametrów takich jak: napięcie, prąd, moc czynna, moc bierna, cos(fi), harmoniczne prądu i inne. Urządzenie umożliwia komunikację za pomocą Ethernet przy wykorzystaniu protokołu modbus.
+Celem ćwiczenia było zapoznanie się z urządzeniem służącym do analizy parametrów sieciowych używanym w automatyce. Na zajęciach dostępny był analizator parametrów sieci EMA-90N firmy Contrel, który umożliwia kontrolę stanu sieci elektrycznej poprzez mierzenie parametrów takich jak: napięcie, prąd, moc czynna, moc bierna, cos(fi), harmoniczne prądu i~inne. Urządzenie umożliwia komunikację za pomocą Ethernet przy wykorzystaniu protokołu modbus.
 \section{Podstawowe zagadnienia związane z siecią elektryczną}
 % Ogólna definicja
 \subsection{Napięcie}
@@ -93,11 +93,11 @@ Napięcie można również wyrazić jako stosunek pracy wykonanej przeciwko polu
     U_{AB} = \varphi_B - \varphi_A = \frac{W_{A \rightarrow B}}{q}
 \end{equation}
 \subsubsection{Napięcie sieciowe}
-Napięcie sieciowe – napięcie elektryczne występujące w sieci niskiego napięcia danego kraju. Napięcie sieciowe ma charakterystykę sinusoidalną i w zależności od kraju: częstotliwość 50 lub 60 Hz i napięcie od 100 do 240 V (w Polsce 230 V / 50 Hz – określa to Polska Norma PN-IEC 60038). Większość urządzeń powszechnego użytku jest zasilana z wykorzystaniem napięcia sieciowego lub napięciem przetworzonym z napięcia sieciowego, przy użyciu transformatorów napięcia. Należy zaznaczyć, że wartość 230 V to wartość skuteczna napięcia przemiennego. Przy 230 V szczytowa wartość napięcia sieciowego wynosi $230 V * \sqrt{2} = 325 V$. Dopuszczalne odchylenia wynoszą $\pm\ 10\%$, czyli od 207 do 253 V.
+Napięcie sieciowe – napięcie elektryczne występujące w sieci niskiego napięcia danego kraju. Napięcie sieciowe ma charakterystykę sinusoidalną i~w zależności od kraju: częstotliwość $50Hz$ lub $60Hz$ i~napięcie od $100$ do $240V$ (w Polsce $230 V$ / $50Hz$ – określa to Polska Norma PN-IEC 60038). Większość urządzeń powszechnego użytku jest zasilana z wykorzystaniem napięcia sieciowego lub napięciem przetworzonym z napięcia sieciowego, przy użyciu transformatorów napięcia. Należy zaznaczyć, że wartość 230 V to wartość skuteczna napięcia przemiennego. Przy 230 V szczytowa wartość napięcia sieciowego wynosi $230 V \cdot \sqrt{2} = 325 V$. Dopuszczalne odchylenia wynoszą $\pm\ 10\%$, czyli od 207 do $253 V$.
 \subsection{Prąd}
 Prąd elektryczny - to uporządkowany ruch ładunków elektrycznych. Nośnikami tych ładunków mogą być elektrony lub jony.\\
 Ściśle związaną jednostką z prądem jest \textbf{natężenie prądu}, czyli wielkość fizyczna charakteryzująca przepływ prądu elektrycznego zdefiniowana jako stosunek wartości przepływającego ładunku elektrycznego do czasu przepływu tego ładunku.
-Symbolem natężenia prądu elektrycznego jest \textit{I} i wyrażane jest w Amperach [A]. Natężenie prądu określa się wzorem:
+Symbolem natężenia prądu elektrycznego jest \textit{I} i~wyrażane jest w Amperach [A]. Natężenie prądu określa się wzorem:
 \begin{equation}
     I = \frac{\partial{q}}{\partial{t}},
 \end{equation}
@@ -117,15 +117,24 @@ Prąd zmienny - to prąd elektryczny, dla którego wartość natężenia zmienia
     \end{itemize}
     \item prąd nieokresowy
 \end{itemize}
-Wszystkie powyższe pozycje poza ostatnią są przypadkami szczególnymi prądu zmiennego i mają one swoje specjalne znaczenie w elektrotechnice i elektronice. Prąd zmienny nieokresowy może reprezentować prąd o dowolnej zmienności w czasie lub też prąd zmieniający się zgodnie z określoną funkcją matematyczną lub na skutek określonego zjawiska fizycznego. Na przykład uderzenie pioruna powoduje powstanie fali udarowej o określonym kształcie, która przebiega jednorazowo, nie ma więc charakteru okresowego. Często termin prąd zmienny stosowany jest do prądu okresowego przemiennego o przebiegu sinusoidalnym (ang.: alternating current, AC).\\
-% \includesvg{current_types} kurwa ja już nie wiem XD
-Prąd przemienny (ang. alternating current, AC) – charakterystyczny przypadek prądu elektrycznego okresowo zmiennego, w którym wartości chwilowe podlegają zmianom w powtarzalny, okresowy sposób, z określoną częstotliwością. Wartości chwilowe natężenia prądu przemiennego przyjmują naprzemiennie wartości dodatnie i ujemne. Najczęściej pożądane jest, aby wartość średnia cało okresowa (tzn. składowa stała) wynosiła zero. Największe znaczenie praktyczne mają prąd i napięcie o przebiegu sinusoidalnym. W żargonie technicznym nazwa prąd przemienny często oznacza po prostu prąd sinusoidalny. Jeśli zakłócenia lub nieliniowość powodują zdeformowanie sinusoidalnego kształtu, wówczas taki niesinusoidalny przebieg nosi nazwę przebiegu odkształconego.
+
+Wszystkie powyższe pozycje poza ostatnią są przypadkami szczególnymi prądu zmiennego i~mają one swoje specjalne znaczenie w elektrotechnice i~elektronice. Prąd zmienny nieokresowy może reprezentować prąd o dowolnej zmienności w czasie lub też prąd zmieniający się zgodnie z określoną funkcją matematyczną lub na skutek określonego zjawiska fizycznego. Na przykład uderzenie pioruna powoduje powstanie fali udarowej o określonym kształcie, która przebiega jednorazowo, nie ma więc charakteru okresowego. Często termin prąd zmienny stosowany jest do prądu okresowego przemiennego o przebiegu sinusoidalnym (ang.: alternating current, AC).\\
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{img/current_types.png}
+  \caption{Charakterystyka prądów}
+  \label{fig:my_label}
+\end{figure}
+
+Prąd przemienny (ang. alternating current, AC) – charakterystyczny przypadek prądu elektrycznego okresowo zmiennego, w którym wartości chwilowe podlegają zmianom w powtarzalny, okresowy sposób, z określoną częstotliwością. Wartości chwilowe natężenia prądu przemiennego przyjmują naprzemiennie wartości dodatnie i~ujemne. Najczęściej pożądane jest, aby wartość średnia cało okresowa (tzn. składowa stała) wynosiła zero. Największe znaczenie praktyczne mają prąd i~napięcie o przebiegu sinusoidalnym. W żargonie technicznym nazwa prąd przemienny często oznacza po prostu prąd sinusoidalny. Jeśli zakłócenia lub nieliniowość powodują zdeformowanie sinusoidalnego kształtu, wówczas taki niesinusoidalny przebieg nosi nazwę przebiegu odkształconego.
 \subsection{Moc czynna}
- W układach prądu przemiennego (zarówno prądu zmiennego) jest to część mocy, którą odbiornik pobiera ze źródła i zamienia na pracę lub ciepło. W układach prądu stałego cała moc jest mocą czynną. Moc czynna wyrażana jest w Watach [W].\\
- Moc czynna jest średnią mocą, co dla przebiegu okresowego prądu i napięcia wyraża całka Riemanna:
-\begin{equation}
- P={\frac {1}{T}}\int _{0}^{T}u(t)i(t)dt
- \end{equation}
+ W układach prądu przemiennego (zarówno prądu zmiennego) jest to część mocy, którą odbiornik pobiera ze źródła i~zamienia na pracę lub ciepło. W układach prądu stałego cała moc jest mocą czynną. Moc czynna wyrażana jest w Watach [W].\\
+ Moc czynna jest średnią mocą, co dla przebiegu okresowego prądu i~napięcia wyraża całka Riemanna:
+ \begin{equation}
+  P={\frac {1}{T}}\int _{0}^{T}u(t)i(t)dt
+\end{equation}
+\newpage
  Gdzie:
  \begin{itemize}[noitemsep]
      \item $P$ - moc czynna,
@@ -135,18 +144,18 @@ Prąd przemienny (ang. alternating current, AC) – charakterystyczny przypadek 
      \item $i$ - chwilowe natężenie prądu
  \end{itemize}
 \subsection{Moc bierna}
-W obwodach prądu zmiennego jest wielkością opisującą pulsowanie energii elektrycznej między elementami obwodu elektrycznego. Ta oscylująca energia nie jest zamieniana na użyteczną pracę lub ciepło, niemniej jest ona konieczna do funkcjonowania maszyn elektrycznych (np. transformatorów, silników). Energia jest pobierana ze źródła w części okresu przebiegu zmiennego, magazynowana przez odbiornik (w postaci energii pola elektrycznego lub magnetycznego) i oddawana do źródła w innej części okresu, co jest związane z zanikiem pola w odbiorniku. Jednostką mocy biernej (Q) jest war (z ang. var – Volt Ampere Reactive).
-Dla przebiegów sinusoidalnie zmiennych moc bierna jest definiowana jako iloczyn wartości skutecznych napięcia i prądu, oraz sinusa kąta przesunięcia fazowego między napięciem a prądem:
+W obwodach prądu zmiennego jest wielkością opisującą pulsowanie energii elektrycznej między elementami obwodu elektrycznego. Ta oscylująca energia nie jest zamieniana na użyteczną pracę lub ciepło, niemniej jest ona konieczna do funkcjonowania maszyn elektrycznych (np. transformatorów, silników). Energia jest pobierana ze źródła w części okresu przebiegu zmiennego, magazynowana przez odbiornik (w postaci energii pola elektrycznego lub magnetycznego) i~oddawana do źródła w innej części okresu, co jest związane z zanikiem pola w odbiorniku. Jednostką mocy biernej (Q) jest war (z ang. var – Volt Ampere Reactive).
+Dla przebiegów sinusoidalnie zmiennych moc bierna jest definiowana jako iloczyn wartości skutecznych napięcia i~prądu, oraz sinusa kąta przesunięcia fazowego między napięciem a prądem:
 \begin{equation}
     Q = UIsin(\varphi)
 \end{equation}
 Gdzie:
 \begin{itemize}[noitemsep]
-    \item $U, I$ - wartości skuteczne napięcia i prądu,
-    \item $\varphi$ - przesunięcie fazowe pomiędzy napięciem i prądem
+    \item $U, I$ - wartości skuteczne napięcia i~prądu,
+    \item $\varphi$ - przesunięcie fazowe pomiędzy napięciem i~prądem
 \end{itemize}
 \subsection{Moc pozorna}
-Moc pozorna - to wielkość fizyczna określana dla obwodów prądu przemiennego. Wyraża się ją jako iloczyn wartości skutecznych napięcia i natężenia prądu.
+Moc pozorna - to wielkość fizyczna określana dla obwodów prądu przemiennego. Wyraża się ją jako iloczyn wartości skutecznych napięcia i~natężenia prądu.
 \begin{equation}
     S = UI,
 \end{equation}
@@ -157,20 +166,20 @@ Gdzie:
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{power_types.png}
-    \caption{Moc czynna, chwilowa i moc bierna podczas cykli zmian napięcia}
+    \caption{Moc czynna, chwilowa i~moc bierna podczas cykli zmian napięcia}
     \label{fig:my_label}
 \end{figure}
 \subsection{Współczynnik mocy czynnej do mocy pozornej}
-Współczynnik mocy $cos{\varphi}$ - to stosunek mocy czynnej do mocy pozornej, czyli stosunek mocy użytecznej do iloczynu napięcia i prądu.
+Współczynnik mocy $cos{\varphi}$ - to stosunek mocy czynnej do mocy pozornej, czyli stosunek mocy użytecznej do iloczynu napięcia i~prądu.
 \begin{equation}
     cos(\varphi) = \frac{P}{S},
 \end{equation}
 \subsection{Harmoniczne prądu}
- Harmoniczna - jest napięciem lub prądem o wielokrotności częstotliwości podstawowej systemu energii elektrycznej, wytwarzanym przez działanie nieliniowych obciążeń, takich jak prostowniki, oświetlenie wyładowcze lub nasycone urządzenia magnetyczne. Częstotliwości harmoniczne w sieci energetycznej są częstą przyczyną problemów z jakością energii. Harmoniczne w systemach elektroenergetycznych powodują wzrost temperatury w urządzeniach i przewodach, przerwy w zapłonie w napędach o zmiennej prędkości oraz pulsacje momentu obrotowego w silnikach.
- \begin{figure}[H]
+ Harmoniczna - jest napięciem lub prądem o wielokrotności częstotliwości podstawowej systemu energii elektrycznej, wytwarzanym przez działanie nieliniowych obciążeń, takich jak prostowniki, oświetlenie wyładowcze lub nasycone urządzenia magnetyczne. Częstotliwości harmoniczne w sieci energetycznej są częstą przyczyną problemów z jakością energii. Harmoniczne w systemach elektroenergetycznych powodują wzrost temperatury w urządzeniach i~przewodach, przerwy w zapłonie w napędach o zmiennej prędkości oraz pulsacje momentu obrotowego w silnikach.
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{harmonics}
-    \caption{Analiza zjawiska odkształceń prądów i napięć}
+    \caption{Analiza zjawiska odkształceń prądów i~napięć}
     \label{fig:my_label}
 \end{figure}
 \section{Podstawowe pojęcia związane z komunikacją sieciową w modelu warstwowym TCP/IP}
@@ -179,41 +188,72 @@ Adres IP - jest to liczba nadawana interfejsowi sieciowemu w protokole IP, słu�
 IPv4 używa adresu 32 bitowego. Adres ten zapisuje się dziesiętnie oddzielając kolejne oktety kropkami. Na adres ten składają się dwa elementy: numer sieci oraz numer komputera w sieci, przy czym wielkość tych elementów może się zmieniać.\\
 Przykładowy adres IPv4: \textit{192.168.1.10}
 \subsection{Maska podsieci}
-Maska podsieci pozwala na wyodrębnienie w adresie IP części będącej adresem podsieci i części, która jest adresem hosta w tej podsieci.\\
+Maska podsieci pozwala na wyodrębnienie w adresie IP części będącej adresem podsieci i~części, która jest adresem hosta w tej podsieci.\\
 Podobnie jak adres IP, \textbf{maska podsieci} to również 32 bitowy ciąg, posiadający wartość 1 na pozycjach bitów odpowiadających numerowi sieci, a wartość 0 na pozycjach bitów odpowiadających numerowi urządzenia w sieci.\\
 Przykładowa maska podsieci: \textit{255.255.255.0}
 \subsection{Brama sieciowa}
 Brama sieciowa - to maszyna podłączona do sieci komputerowej, za pośrednictwem której komputery z sieci lokalnej komunikują się z komputerami w innych sieciach.
 \subsection{DHCP}
-DHCP umożliwia podłączonym do sieci komputerom pobieranie adresu IP, maski podsieci, adresu bramy i serwera DNS oraz innych ustawień ze skonfigurowanej wcześniej puli adresów. Serwer DHCP może być skonfigurowany na osobnym komputerze i stanowił będzie osobne urządzenie w sieci przydzielające komputerom klienckim adresy IP, może również działać na już istniejącym serwerze jako osobna usługa, osobny proces.
+DHCP umożliwia podłączonym do sieci komputerom pobieranie adresu IP, maski podsieci, adresu bramy i~serwera DNS oraz innych ustawień ze skonfigurowanej wcześniej puli adresów. Serwer DHCP może być skonfigurowany na osobnym komputerze i~stanowił będzie osobne urządzenie w sieci przydzielające komputerom klienckim adresy IP, może również działać na już istniejącym serwerze jako osobna usługa, osobny proces.
 \section{Protokół modbus TCP/IP}
 \subsection{Komunikacja}
 \textit{Modbus} jest protokołem komunikacyjnym działającym w modelu master-slave, który jest w stanie wspierać komunikację z 247 urządzeniami typu slave zorganizowanych  jako magistrala lub topologia gwiazdy. Komunikacja odbywa się w trybie half duplex.\\
-\textbf{Modbus TCP/IP} jest protokołem Modbus wspierającym interfejs TCP działający w Ethernecie. Komunikacja sieciowa może być typu: pytanie-odpowiedź lub broadcastowa. \textit{Pytanie-odpowiedź} jest transmitowana z urządzenia typu master do nawiązanego połączenia z urządzeniem typu slave i po tym następuje wiadomość z odpowiedzią. \textit{Broadcast} jest transmitowany z urządzenia typu master do wszystkich urządzeń typu slave i po nim nie następuje odpowiedź.
-Struktura przesyłania komunikatów Modbus to protokół aplikacji, który określa reguły organizowania i interpretowania danych niezależnie od nośnika transmisji danych. TCP/IP odnosi się do protokołu kontroli transmisji i protokołu internetowego, który zapewnia medium transmisyjne dla wiadomości Modbus TCP/IP. Mówiąc wprost, TCP/IP umożliwia wymianę bloków danych binarnych między komputerami. Jest to również światowy standard, który służy jako podstawa dla sieci WWW. Podstawową funkcją TCP jest zapewnienie, że wszystkie pakiety danych zostaną odebrane poprawnie, podczas gdy IP zapewnia, że wiadomości są poprawnie adresowane i kierowane. Zasadniczo komunikat Modbus TCP/IP to
+\textbf{Modbus TCP/IP} jest protokołem Modbus wspierającym interfejs TCP działający w Ethernecie. Komunikacja sieciowa może być typu: pytanie-odpowiedź lub broadcastowa. \textit{Pytanie-odpowiedź} jest transmitowana z urządzenia typu master do nawiązanego połączenia z urządzeniem typu slave i~po tym następuje wiadomość z odpowiedzią. \textit{Broadcast} jest transmitowany z urządzenia typu master do wszystkich urządzeń typu slave i~po nim nie następuje odpowiedź.
+Struktura przesyłania komunikatów Modbus to protokół aplikacji, który określa reguły organizowania i~interpretowania danych niezależnie od nośnika transmisji danych. TCP/IP odnosi się do protokołu kontroli transmisji i~protokołu internetowego, który zapewnia medium transmisyjne dla wiadomości Modbus TCP/IP. Mówiąc wprost, TCP/IP umożliwia wymianę bloków danych binarnych między komputerami. Jest to również światowy standard, który służy jako podstawa dla sieci WWW. Podstawową funkcją TCP jest zapewnienie, że wszystkie pakiety danych zostaną odebrane poprawnie, podczas gdy IP zapewnia, że wiadomości są poprawnie adresowane i~kierowane. Zasadniczo komunikat Modbus TCP/IP to
 po prostu komunikacja Modbus zamknięta w opakowaniu Ethernet TCP/IP.
 W praktyce Modbus TCP osadza standardową ramkę danych Modbus w ramce TCP,
 bez sumy kontrolnej Modbus, jak pokazano na poniższym schemacie.
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{adu_pdu}
+  \caption{Ramka wiadomości protokołu Modbus dla RTU i TCP/IP}
+  \label{fig:my_label}
+\end{figure}
+
 \subsection{Ramka wiadomości}
 Ramka wiadomości Modbus RTU składa się z następujących segmentów:
 \begin{enumerate}
     \item \textbf{START FRAME}: znacznik rozpoczynający wiadomość
     \item \textbf{TRANSACTION ID}: pole identyfikacyjne służy do parowania transakcji, gdy wiele wiadomości jest wysyłanych wzdłuż tego samego połączenia TCP przez klienta bez oczekiwania na wcześniejszą odpowiedź
     \item \textbf{PROTOCOL ID}: to pole ma zawsze wartość 0 dla usług \textit{Modbus}, a inne wartości są zarezerwowane dla przyszłych rozszerzeń
-    \item \textbf{LENGTH}: to pole jest liczbą bajtów pozostałych pól i obejmuje
-bajt identyfikatora jednostki, bajt kodu funkcji i pola danych
+    \item \textbf{LENGTH}: to pole jest liczbą bajtów pozostałych pól i~obejmuje
+bajt identyfikatora jednostki, bajt kodu funkcji i~pola danych
     \item \textbf{UnitID}: to pole służy do identyfikacji zdalnego serwera zlokalizowanego w sieci innej niż TCP/IP (do mostkowania szeregowego).
     \item \textbf{ERROR CHECK}: pole uwzględniające kod korekcyjny (jednakże
 pole sprawdzania błędów Modbus (suma kontrolna) nie jest używane jako standardowy TCP/IP w Ethernecie. Zamiast tego stosuje się metody sumy kontrolnej warstwy łącza danych w celu zagwarantowania integralności danych)
     \item \textbf{END OF FRAME}: znacznik kończący wiadomość
 \end{enumerate}
-%rysuneczek here :)))
+
+
 \section{Przebieg laboratorium}
 \subsection{Konfiguracja urządzeń}
 Podczas laboratorium połączyliśmy bezpośrednio ze sobą komputer z analizatorem parametrów sieci EMA-90N kablem typu skręta zakończonym złączami RJ45.\\
-Komputerowi nadaliśmy stały adres IP: \textbf{192.168.50.50}, natomiast analizatorowi \textbf{192.168.50.100}. Oba te adresy mają domyślną maskę podsieci: \textbf{255.255.255.0}. Komunikację między urządzeniami sprawdziliśmy wpierw za pomocą polecenia \textbf{ping} protokołu ICMP, a następnie za pomocą programu testowowego, który znajduje się pod adresem: \url{http://www.zsk.ict.pwr.wroc.pl/zsk/repository/dydaktyka/up/lab/analizator_sieci/ema90n_demo.zip} .
+Komputerowi nadaliśmy stały adres IP: \textbf{192.168.50.50}, natomiast analizatorowi \textbf{192.168.50.100}. Oba te adresy mają domyślną maskę podsieci: \textbf{255.255.255.0}. Komunikację między urządzeniami sprawdziliśmy wpierw za pomocą polecenia \textbf{ping} protokołu ICMP, a następnie za pomocą programu testowego\cite{test}.
+
+%MOŻESZ DODAĆ WIĘCEJ LITERATURY 
+%Jak się doda caption do listingów to się pojawia w spisie
+
+% <3 KROKI <3:
+% KONFIGURACJA
+%   1 DO 1 NIE PO DHCP
+% ODCZYTANIE PIERWSZEJ WARTOŚCI
+%   TUTAJ OMÓWIĆ SZCZEGÓŁOWO TĘ FUNKCJĘ CO WYSYŁA TĘ RAMKĘ I POSZCZEGÓLNE BITY PORÓWNAĆ DO RAMKI OMAWIANEJ WYŻEJ
+%   OMÓWIĆ ŻE PĘTLA JEST W ASYNCHRONICZNYM TASKU
+%   OMÓWIĆ KROKI POTRZEBNE DO WYŚWIETLENIA WARTOŚCI, KONWERSJA, ITD
+% ODCZYTANIE POZOSTAŁYCH POTRZEBNYCH KOLEJNYCH WARTOŚCI
+%   JUŻ NIE SZCZEGÓŁOWO POKAZAĆ KOD DLA KOLEJNYCH WARTOŚCI
+% WYLICZANIE active power I PORÓWNANIE DO Z OTRZYMANYM (TO TEŻ TYLKO ODPOWIEDNI FRAGMENT KODU)
+% ZAPISYWANIE DO PLIKU I NARYSOWANIE WYKRESU (SAME FRAGMENTY ODPOWIEDZIALNE TYLKO ZA TO)
+% POZOSTAŁE ELEMEMTY PROGRAMU (TUTAJ MOŻNA TĘ METODĘ RESETOWANIA WARTOŚCI ALBO WŁĄCZANIA NO TĘ Z BOOLAMI)
+
+% NA KOŃCU MOŻNA CAŁY LISTING DAĆ W SUMIE PRÓCZ FRAGMENTÓW
+
+% NO I GITARA BĘDZIE, TE DEFINICJE JEDNAK SPOKO TO JA JESTEM ZJEBANY :*
+% W LITERATURZE DODAJ JAKIEŚ WIKI CZY COŚ XD I W TEKSCIE GDZIEŚ \cite
 \subsection{Listing}
-\begin{lstlisting}[language=c]
+\begin{lstlisting}[language=C, caption=Klasa Form zarządzająca odczytywaniem danych]
 TcpClient client;
 NetworkStream stream;
 bool capture = false;
@@ -312,4 +352,10 @@ private void button1_Click(object sender, EventArgs e)
   }
 }
 \end{lstlisting}
+
+\newpage
+\begin{thebibliography}{9}
+  \bibitem{test}
+  Program testowy: \url{http://www.zsk.ict.pwr.wroc.pl/zsk/repository/dydaktyka/up/lab/analizator_sieci/ema90n_demo.zip}
+\end{thebibliography}
 \end{document}
