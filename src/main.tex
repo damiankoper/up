@@ -93,7 +93,7 @@ Napięcie można również wyrazić jako stosunek pracy wykonanej przeciwko polu
     U_{AB} = \varphi_B - \varphi_A = \frac{W_{A \rightarrow B}}{q}
 \end{equation}
 \subsubsection{Napięcie sieciowe}
-Napięcie sieciowe – napięcie elektryczne występujące w sieci niskiego napięcia danego kraju. Napięcie sieciowe ma charakterystykę sinusoidalną i w zależności od kraju: częstotliwość 50 lub 60 Hz i napięcie od 100 do 240 V (w Polsce 230 V / 50 Hz – określa to Polska Norma PN-IEC 60038). Większość urządzeń powszechnego użytku jest zasilana z wykorzystaniem napięcia sieciowego lub napięciem przetworzonym z napięcia sieciowego, przy użyciu transformatorów napięcia. Należy zaznaczyć, że wartość 230 V to wartość skuteczna napięcia przemiennego. Przy 230 V szczytowa wartość napięcia sieciowego wynosi 230 V * √2 = 325 V. Dopuszczalne odchylenia wynoszą $\pm\ 10\%$, czyli od 207 do 253 V.
+Napięcie sieciowe – napięcie elektryczne występujące w sieci niskiego napięcia danego kraju. Napięcie sieciowe ma charakterystykę sinusoidalną i w zależności od kraju: częstotliwość 50 lub 60 Hz i napięcie od 100 do 240 V (w Polsce 230 V / 50 Hz – określa to Polska Norma PN-IEC 60038). Większość urządzeń powszechnego użytku jest zasilana z wykorzystaniem napięcia sieciowego lub napięciem przetworzonym z napięcia sieciowego, przy użyciu transformatorów napięcia. Należy zaznaczyć, że wartość 230 V to wartość skuteczna napięcia przemiennego. Przy 230 V szczytowa wartość napięcia sieciowego wynosi $230 V * \sqrt{2} = 325 V$. Dopuszczalne odchylenia wynoszą $\pm\ 10\%$, czyli od 207 do 253 V.
 \subsection{Prąd}
 Prąd elektryczny - to uporządkowany ruch ładunków elektrycznych. Nośnikami tych ładunków mogą być elektrony lub jony.\\
 Ściśle związaną jednostką z prądem jest \textbf{natężenie prądu}, czyli wielkość fizyczna charakteryzująca przepływ prądu elektrycznego zdefiniowana jako stosunek wartości przepływającego ładunku elektrycznego do czasu przepływu tego ładunku.
@@ -102,16 +102,16 @@ Symbolem natężenia prądu elektrycznego jest \textit{I} i wyrażane jest w Amp
     I = \frac{\partial{q}}{\partial{t}},
 \end{equation}
 Gdzie:
-    \begin{itemize}
+    \begin{itemize}[noitemsep]
         \item $\partial{q}$ - zmiana ładunku równoważna przepływającemu ładunkowi,
         \item $\partial{t}$ - czas przepływu ładunku,
         \item $I$ - natężenie prądu
     \end{itemize}
 \subsubsection{Prąd zmienny}
 Prąd zmienny - to prąd elektryczny, dla którego wartość natężenia zmienia się w czasie w dowolny sposób. W zależności od charakteru tych zmian można wyróżnić następujące rodzaje prądu:
-\begin{itemize}
+\begin{itemize}[noitemsep]
     \item prąd okresowo zmienny
-    \begin{itemize}
+    \begin{itemize}[noitemsep]
         \item prąd tętniący
         \item prąd przemienny
     \end{itemize}
@@ -127,7 +127,7 @@ Prąd przemienny (ang. alternating current, AC) – charakterystyczny przypadek 
  P={\frac {1}{T}}\int _{0}^{T}u(t)i(t)dt
  \end{equation}
  Gdzie:
- \begin{itemize}
+ \begin{itemize}[noitemsep]
      \item $P$ - moc czynna,
      \item $t$ - czas,
      \item $T$ - okres,
@@ -141,7 +141,7 @@ Dla przebiegów sinusoidalnie zmiennych moc bierna jest definiowana jako iloczyn
     Q = UIsin(\varphi)
 \end{equation}
 Gdzie:
-\begin{itemize}
+\begin{itemize}[noitemsep]
     \item $U, I$ - wartości skuteczne napięcia i prądu,
     \item $\varphi$ - przesunięcie fazowe pomiędzy napięciem i prądem
 \end{itemize}
@@ -151,25 +151,23 @@ Moc pozorna - to wielkość fizyczna określana dla obwodów prądu przemiennego
     S = UI,
 \end{equation}
 Gdzie:
-\begin{itemize}
+\begin{itemize}[noitemsep]
     \item $U, I$ - wartości skuteczne napięcia oraz natężenia prądu
 \end{itemize}
-%TO MIAŁO BYĆ NA SAMYM KOŃCU SEKCJI!!!!
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.5]{power_types}
+    \includegraphics[scale=0.5]{power_types.png}
     \caption{Moc czynna, chwilowa i moc bierna podczas cykli zmian napięcia}
     \label{fig:my_label}
 \end{figure}
-\subsection{Współczynnik mocy cos(\varphi)}
-Współczynnik mocy - to stosunek mocy czynnej do mocy pozornej, czyli stosunek mocy użytecznej do iloczynu napięcia i prądu.
+\subsection{Współczynnik mocy czynnej do mocy pozornej}
+Współczynnik mocy $cos{\varphi}$ - to stosunek mocy czynnej do mocy pozornej, czyli stosunek mocy użytecznej do iloczynu napięcia i prądu.
 \begin{equation}
     cos(\varphi) = \frac{P}{S},
 \end{equation}
 \subsection{Harmoniczne prądu}
  Harmoniczna - jest napięciem lub prądem o wielokrotności częstotliwości podstawowej systemu energii elektrycznej, wytwarzanym przez działanie nieliniowych obciążeń, takich jak prostowniki, oświetlenie wyładowcze lub nasycone urządzenia magnetyczne. Częstotliwości harmoniczne w sieci energetycznej są częstą przyczyną problemów z jakością energii. Harmoniczne w systemach elektroenergetycznych powodują wzrost temperatury w urządzeniach i przewodach, przerwy w zapłonie w napędach o zmiennej prędkości oraz pulsacje momentu obrotowego w silnikach.
- %TO MIAŁO BYĆ PRZY HARMONICZNYCH NOOO
- \begin{figure}
+ \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{harmonics}
     \caption{Analiza zjawiska odkształceń prądów i napięć}
@@ -196,7 +194,6 @@ Struktura przesyłania komunikatów Modbus to protokół aplikacji, który okre�
 po prostu komunikacja Modbus zamknięta w opakowaniu Ethernet TCP/IP.
 W praktyce Modbus TCP osadza standardową ramkę danych Modbus w ramce TCP,
 bez sumy kontrolnej Modbus, jak pokazano na poniższym schemacie.
-%schemacik here :))))
 \subsection{Ramka wiadomości}
 Ramka wiadomości Modbus RTU składa się z następujących segmentów:
 \begin{enumerate}
@@ -217,111 +214,102 @@ Podczas laboratorium połączyliśmy bezpośrednio ze sobą komputer z analizato
 Komputerowi nadaliśmy stały adres IP: \textbf{192.168.50.50}, natomiast analizatorowi \textbf{192.168.50.100}. Oba te adresy mają domyślną maskę podsieci: \textbf{255.255.255.0}. Komunikację między urządzeniami sprawdziliśmy wpierw za pomocą polecenia \textbf{ping} protokołu ICMP, a następnie za pomocą programu testowowego, który znajduje się pod adresem: \url{http://www.zsk.ict.pwr.wroc.pl/zsk/repository/dydaktyka/up/lab/analizator_sieci/ema90n_demo.zip} .
 \subsection{Listing}
 \begin{lstlisting}[language=c]
-TcpClient client; //stworzenie klienta TCP
-NetworkStream stream; //strumień danych do kumunikacji w TCP
+TcpClient client;
+NetworkStream stream;
 bool capture = false;
 float activePowerCalcVal = 0;
 int currentSleep = 0;
 
 public Form1()
 {
-    InitializeComponent();
-    client = new TcpClient("192.168.50.50", 502);
-    stream = client.GetStream();
-    Task.Run(async () => await CaptureProc());
+  InitializeComponent();
+  client = new TcpClient("192.168.50.50", 502);
+  stream = client.GetStream();
+  Task.Run(async () => await CaptureProc());
 }
-private async Task CaptureProc() //metoda asynchroniczna, sluzaca
-                                // do rysowania wykresow parametrow
-                                //sieci od czasu
+private async Task CaptureProc()
 {
-    int sleep = 200;
-    var voltageSeries = voltageChart.Series["voltageSeries"];
-    //zapisywanie danych do pliku .csv w celu odczytania go w Excelu
-    using (StreamWriter file = File.CreateText("data.csv"))
-    {
-        file.WriteLine("time,voltage,current,cosfi,
-        powerActive,powerActiveCalc,powerActiveDiff");
-        while (true){
-            if (capture){
-                float blabla = currentSleep / 1000;
-                string buff = blabla.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
-                //odczytywanie poszczegolnych danych z poszczegolnych rejestrow
-                //dane te sa podane w dokumentacji urzadzenia
-                float voltageVal = 
-                readRegister(new byte[] { 0x10, 0x02 }) / 1000;
-                voltage.Invoke(new Action(()
-                => voltage.Text = voltageVal.ToString()));
-                buff += voltageVal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + ",";
-                float currentVal = 
-                readRegister(new byte[] { 0x10, 0x10 }) / 100;
-                current.Invoke(new Action(() 
-                => current.Text = currentVal.ToString()));
-                buff += currentVal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + ",";
-                float cosfiVal = 
-                readRegister(new byte[] { 0x10, 0x20 }) / 1000;
-                cosfi.Invoke(new Action(() => cosfi.Text = cosfiVal.ToString()));
-                buff += cosfiVal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + ",";
-                float powerActiveVal = readRegister(new byte[] { 0x10, 0x30 });
-                powerActive.Invoke(new Action(() => 
-                powerActive.Text = powerActiveVal.ToString()));
-                buff += powerActiveVal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + ",";
-                activePowerCalcVal =
-                Math.Abs(voltageVal * currentVal * cosfiVal) / 10;
-                buff += activePowerCalcVal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + ",";
-                float diff = Math.Abs(activePowerCalcVal - powerActiveVal);
-                buff += diff.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
-                activePowerCalc.Invoke(new Action(() 
-                => activePowerCalc.Text = activePowerCalcVal.ToString()));
-                activePowerDiff.Invoke(new Action(() => 
-                activePowerDiff.Text = diff.ToString()));
-                file.WriteLine(buff);
-                file.Flush();
-                voltageChart.Invoke(new Action(() => {
-                    voltageChart.Series["voltageSeries"].Points.AddXY(currentSleep, voltageVal);
-                    voltageChart.Series["powerSeries"].Points.AddXY(currentSleep, powerActiveVal);
-                    voltageChart.Invalidate();
-                }));
-                currentSleep += 200;
-                Thread.Sleep(sleep);
-            }
-        }
+  int sleep = 200;
+  var voltageSeries = voltageChart.Series["voltageSeries"];
+  using (StreamWriter file = File.CreateText("data.csv"))
+  {
+    file.WriteLine("time,voltage,current,cosfi,
+    powerActive,powerActiveCalc,powerActiveDiff");
+    while (true){
+      if (capture){
+        float blabla = currentSleep / 1000;
+        string buff = blabla.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
+        float voltageVal = 
+        readRegister(new byte[] { 0x10, 0x02 }) / 1000;
+        voltage.Invoke(new Action(()
+        => voltage.Text = voltageVal.ToString()));
+        buff += voltageVal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + ",";
+        float currentVal = 
+        readRegister(new byte[] { 0x10, 0x10 }) / 100;
+        current.Invoke(new Action(() 
+        => current.Text = currentVal.ToString()));
+        buff += currentVal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + ",";
+        float cosfiVal = 
+        readRegister(new byte[] { 0x10, 0x20 }) / 1000;
+        cosfi.Invoke(new Action(() => cosfi.Text = cosfiVal.ToString()));
+        buff += cosfiVal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + ",";
+        float powerActiveVal = readRegister(new byte[] { 0x10, 0x30 });
+        powerActive.Invoke(new Action(() => 
+        powerActive.Text = powerActiveVal.ToString()));
+        buff += powerActiveVal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + ",";
+        activePowerCalcVal =
+        Math.Abs(voltageVal * currentVal * cosfiVal) / 10;
+        buff += activePowerCalcVal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + ",";
+        float diff = Math.Abs(activePowerCalcVal - powerActiveVal);
+        buff += diff.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
+        activePowerCalc.Invoke(new Action(() 
+        => activePowerCalc.Text = activePowerCalcVal.ToString()));
+        activePowerDiff.Invoke(new Action(() => 
+        activePowerDiff.Text = diff.ToString()));
+        file.WriteLine(buff);
+        file.Flush();
+        voltageChart.Invoke(new Action(() => {
+          voltageChart.Series["voltageSeries"].Points.AddXY(currentSleep, voltageVal);
+          voltageChart.Series["powerSeries"].Points.AddXY(currentSleep, powerActiveVal);
+          voltageChart.Invalidate();
+        }));
+        currentSleep += 200;
+        Thread.Sleep(sleep);
+      }
     }
+  }
 }
-private float readRegister(byte[] register) //odczyt danych
-                                            //z poszczególnych rejestrów
+private float readRegister(byte[] register) 
 {
-    //struktura ramki wiadomości, która została przedstawiona
-    byte[] request = { 0x00, 0x01, 0x00, 0x00, 0x00, 0x06, 0x01, 0x03, register[0], register[1], 0x00, 0x02 };
-    stream.Write(request, 0, request.Length);
-    byte[] answer = new byte[100];
-    stream.Read(answer, 0, answer.Length);
-    byte[] cut = new byte[4];
-    Array.ConstrainedCopy(answer, 9, cut, 0, 4);
-    Array.Reverse(cut);
-    float value = BitConverter.ToInt32(cut, 0);
-    return value;
+  byte[] request = { 0x00, 0x01, 0x00, 0x00, 0x00, 0x06, 0x01, 0x03, register[0], register[1], 0x00, 0x02 };
+  stream.Write(request, 0, request.Length);
+  byte[] answer = new byte[100];
+  stream.Read(answer, 0, answer.Length);
+  byte[] cut = new byte[4];
+  Array.ConstrainedCopy(answer, 9, cut, 0, 4);
+  Array.Reverse(cut);
+  float value = BitConverter.ToInt32(cut, 0);
+  return value;
 }
 private void button1_Click(object sender, EventArgs e)
 {
-    //aktualizacja interfejsu użytkownika po wcisnieciu przycisku
-    //rozpoczynajacego pomiary
-    if (capture){
-        capture = false;
-        button1.Text = "Włącz mierzonko";
-        button1.BackColor = default(Color);
-    }else{
-        capture = true;
-        button1.BackColor = Color.Red;
-        button1.Text = "Wyłącz mierzonko";
-        voltage.Text = 0.ToString();
-        current.Text = 0.ToString();
-        currentSleep = 0;
-        voltageChart.Invoke(new Action(() => {
-            voltageChart.Series["voltageSeries"].Points.Clear();
-            voltageChart.Series["powerSeries"].Points.Clear();
-            voltageChart.Invalidate();
-        }));
-    }
+  if (capture){
+    capture = false;
+    button1.Text = "Wlacz mierzonko";
+    button1.BackColor = default(Color);
+  } else{
+    capture = true;
+    button1.BackColor = Color.Red;
+    button1.Text = "Wylacz mierzonko";
+    voltage.Text = 0.ToString();
+    current.Text = 0.ToString();
+    currentSleep = 0;
+    voltageChart.Invoke(new Action(() => {
+      voltageChart.Series["voltageSeries"].Points.Clear();
+      voltageChart.Series["powerSeries"].Points.Clear();
+      voltageChart.Invalidate();
+    }));
+  }
 }
 \end{lstlisting}
 \end{document}
