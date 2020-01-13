@@ -1,23 +1,15 @@
 {
-  "latex-workshop.latex.outDir": "%DIR%/../out",
+  "latex-workshop.latex.outDir": "../out",
   "editor.wordWrap": "on",
-  "spellright.language":[
-    "English (American)",
-    "English (British)",
-    "Polish"
-  ],
+  "spellright.language": ["English (American)", "English (British)", "Polish"],
   "spellright.ignoreRegExpsByClass": {
-    "markdown": [ "/&amp;/g", "/&nbsp;/g" ],
-    "cpp": [ "/#include\\s+\\\".+\\\"/g" ],
-    "html": [ "/<script>[^]*?</script>/gm" ],
-    "latex": [ 
+    "markdown": ["/&amp;/g", "/&nbsp;/g"],
+    "cpp": ["/#include\\s+\\\".+\\\"/g"],
+    "html": ["/<script>[^]*?</script>/gm"],
+    "latex": [
       "/\\\\begin{lstlisting}[^]*?\\\\end{lstlisting}/gm",
-      "/\\\\begin{lstinline}[^]*?/gm" 
+      "/\\\\begin{lstinline}[^]*?/gm"
     ]
   },
-  "spellright.documentTypes": [
-    "markdown",
-    "latex",
-    "plaintext"
-  ]
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"]
 }
