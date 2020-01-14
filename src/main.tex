@@ -16,7 +16,8 @@
 \usepackage[bf]{caption}
 \usepackage{listings}
 \renewcommand{\baselinestretch}{1.5}
-
+\usepackage{amsmath}% http://ctan.org/pkg/amsmath
+\usepackage{array}% http://ctan.org/pkg/array
 \usepackage{listings}
 \usepackage{xcolor}
  
@@ -113,7 +114,7 @@ Rysunek \ref{raspi:2} prezentuje jak rozmieszczone są piny odpowiedzialne za po
 
 \subsection{System operacyjny}
 Na RaspberryPi uruchomione mogą zostać systemy skompilowane na architekturę ARM. Najpopularniejsze z nich oparte są na Linuxie, jednym z nich jest system Raspbian\cite{raspbian}. Na RaspberryPi może uruchomiony również zostać system Windows 10 w wersji \textit{Internet of Things}\cite{w10iot}.
-
+\newpage
 \section{Dioda LED}
 Podstawowa obsługa diody LED polegała na włączaniu i wyłączaniu jej co sekundę. Układ został podłączony zgodnie ze schematem z rysunku \ref{sch:1}. Do zaświecenia diodą wystarczy prąd płynący przy ustawieniu stanu pinu GPIO na wysoki. Pin GPIO na wyjściu dostarcza napięcie 3.3V i może obsłużyć natężenie maksymalnie 50mA\cite{raspi:power}.
 
@@ -138,23 +139,101 @@ Sterowanie diodą z poziomu języka Python odbywa się na podobnej zasadzie co w
 Wywołanie funkcji \lstinline{GPIO.setmode} odpowiada za ustawienie mapowania numeru pinu na jego fizyczny odpowiednik. Funkcja \lstinline{GPIO.setup} ustawia kierunek i początkową wartość dla pinu, a funkcja \lstinline{GPIO.output} zmienia wyjście pinu na wartość z argumentu.
 \newpage
 \subsection{Sterowanie przyciskiem}
-Cośtam blabla
+
+Sterowanie diodą za pomocą przycisku wymagało dodania układu przycisku wraz z rezystorem, który ogranicza przepływ prądu. Jeden koniec podłączono pod pin zasilający 3.3V, a drugi do pinu GPIO, za pomocą którego odczytywany był stan naciśnięcia przycisku. Schemat podłączenia pokazany został na rysunku \ref{sch:2}.
+
 \begin{figure}[h]
   \centering
   \includegraphics[height=0.4\linewidth]{sch2}
   \caption{Podłączenie diody LED i przycisku.}
-  \label{sch:1}
+  \label{sch:2}
 \end{figure}
+
+Zdarzenie naciśnięcia przycisku obsługiwane było za pomocą przerwania. Było ono wywoływane przy rosnącym zboczu sygnału. Za konfigurację tego zachowania odpowiada metoda \lstinline{GPIO.add_event_detect} wywołana w linii 17 listingu \ref{lst:button}, która w trzecim argumencie przyjmuje funkcję obsługi zdarzenia. Stan diody przechowywany był w zmiennej typu \lstinline{boolean} i zmieniany był na przeciwny przy każdym naciśnięciu przycisku.
 
 \lstinputlisting[language=Python, caption={Sterowanie diodą LED za pomocą przycisku. Najważniejsze fragmenty.}, label=lst:button, linerange={8-24}]{code/led_button.py}
 
+Naciśnięcie przycisku nie powoduje od razu idealnego zwarcia. Występują wtedy zakłócenia powstawania zbocza rosnącego, które mogą powodować wielokrotne wykrycie zdarzenia tego samego naciśnięcia przycisku. W celu wyeliminowania tego zjawiska w linii 6 listingu \ref{lst:button} następuje oczekiwania na ustabilizowanie się sygnału przed jego odczytem wynoszące 15 milisekund.
 
 \section{Pomiar temperatury}
+Pomiar temperatury odbywał się z wykorzystaniem termometru DS18B20\cite{term} komunikującego się z RaspberryPi poprzez protokół 1-Wire. Jest to protokół pozwalający na komunikację tylko z wykorzystaniem, oprócz złącza masy, jednego przewodu wykorzystując zasilanie pasożytnicze. W wypadku podłączonego układu napięcie zasilające dostarczane jest osobnym złączem $V_{dd}$.
+\begin{figure}[h]
+  \centering
+  \includegraphics[height=0.4\linewidth]{sch3}
+  \caption{Podłączenie termometru.}
+  \label{sch:3}
+\end{figure}
 
-\section{Pomiar odległości}
+Obsługę protokołu 1-Wire należy włączyć w opcjach konfiguracyjnych systemu Raspbian, a przewód transmisji danych musi być podłączony do pinu GPIO nr 4. Każde urządzenie identyfikowane jest 64-bitowym numerem, dzięki czemu istnieje możliwość podłączenia pod jedną magistralę wielu urządzeń. Aby odczytać temperaturę należy wyświetlić zawartość pliku \lstinline{/sys/bus/w1/devices/XXX/w1_slave}, gdzie \lstinline{XXX} to numer urządzenia. Plik ten jest automatycznie aktualizowany przez system.
+
+Aby odczytać temperaturę w języku Python wykorzystano bibliotekę \lstinline{w1thermsensor}, która pozwala stworzyć obiekt typu \lstinline{W1ThermSensor}, który metodą \lstinline{get_temperature} pozwala odczytać temperaturę w stopniach Celsjusza. Odczyt przeprowadzany jest co sekundę. Cały kod za to odpowiedzialny widoczny jest na listingu \ref{lst:term}
+\lstinputlisting[language=Python, caption={Odczytywanie temperatury.}, label=lst:term]{code/w1_therm.py}
+
+\section{Pomiar odległości i dioda RGB}
+
+Na rysunku \ref{sch:4} pokazano połączenie sensora HC-SR04\cite{ultrasonic}. Zasilany jest on napięciem 5V i oprócz pinów $V_{CC}$ i GND ma on jeszcze wyprowadzenia Trigger i Echo. Pierwsze z nich odpowiada za rozpoczęcie pomiaru, a drugie informuje o jego zakończeniu. Pomiar zakończony jest wtedy, kiedy wysłana i odbita fala dźwiękowa wyemitowana przez sensor do niego wróci. Znając prędkość dźwięku w powietrzu i moment rozpoczęcia pomiaru możemy na tej podstawie wyliczyć odległość.
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=0.4\linewidth]{sch4}
+  \caption{Podłączenie sensora HC-SR04 i diody RGB.}
+  \label{sch:4}
+\end{figure}
+
+Na rysunku \ref{sch:4} widać również podłączenie diody RGB LED, gdzie każdym kolorem steruje osobny pin GPIO.
+
+\begin{lstlisting}[language=Python, caption={Odczytywanie odległości.}, label=lst:ultrasonic]
+def distance():
+    GPIO.output(GPIO_TRIGGER, True)
+    time.sleep(0.00001)
+    GPIO.output(GPIO_TRIGGER, False)
+ 
+    StartTime = time.time()
+    StopTime = time.time()
+    while GPIO.input(GPIO_ECHO) == 0:
+        StartTime = time.time()
+    while GPIO.input(GPIO_ECHO) == 1:
+        StopTime = time.time()
+ 
+    TimeElapsed = StopTime - StartTime
+    distance = (TimeElapsed * 34300) / 2
+    return distance
+\end{lstlisting}
+\clearpage
+Pokazana na listingu \ref{lst:ultrasonic} metoda \lstinline{distange} włącza pomiar wysyłając impuls o długości $10\mu s$. Następnie czeka na stan wysoki na pinie Echo, który informuje o dotarciu odbitej fali. Na podstawie czasów tych wydarzeń obliczana jest odległość wg wzoru \ref{eq:1}.
+\begin{gather}
+  \label{eq:1}
+d = ((t_k - t_s) \cdot 34300)/2
+\intertext{Gdzie:}
+  \begin{tabular}{>{$}r<{$}@{\ :\ }l}
+    d & szukana odległość \\
+    t_{k} & czas końca pomiaru \\
+    t_{s} & czas początku pomiaru \\
+    34300[\frac{cm}{s}] & prędkość dźwięku w powietrzu wyrażona w centymetrach \\
+  \end{tabular}\nonumber
+\end{gather}
+
+Wynik dzielony jest na dwa, ponieważ otrzymany czas zawiera drogę fali do obiektu i od niego po odbiciu.
+
+Na podstawie odczytanej odległości odbywało się sterowanie kolorem świecenia diody RGB. Co sekundę wykonywany był pomiar i w zależności od odległości dioda świeciła na czerwono lub zielono. Kod odpowiedzialny za to zachowanie znajduje się w listingu \ref{lst:ultrasonicRGB}.
+\begin{lstlisting}[language=Python, caption={Odczytywanie odległości.}, label=lst:ultrasonicRGB]
+while True:
+    dist = distance()
+    if dist < 20:
+        GPIO.output(rpin, GPIO.HIGH)
+        GPIO.output(gpin, GPIO.LOW)
+    else:
+        GPIO.output(rpin, GPIO.LOW)
+        GPIO.output(gpin, GPIO.HIGH)
+    print ("Measured Distance = %.1f cm" % dist)
+    time.sleep(1)
+\end{lstlisting}
 
 \section{Podsumowanie}
+Komputer RaspberryPi ze względu na swoją cenę, mały rozmiar i rozbudowaną społeczność użytkowników stanowi doskonałe źródło edukacyjne, pozwalające poznać niskopoziomowe mechanizmy, protokoły i interfejsy. Pracując z w pełni funkcjonalnym systemem operacyjnym RaspberryPi nie ogranicza możliwości użycia jej również w wysokopoziomowych projektach. 
 
+Model RaspberryPi w wersji 4B ma jednak wadę, którą jest nieodpowiedni odpływ ciepła z procesora. Skutkowało to przegrzewaniem się układu, który w celu ochłodzenia obniżał swoje taktowanie. Działo się to przy bardziej wymagających obliczeniowo zadaniach, którymi okazały się otwarcie kilku stron internetowych.
 
 \input{bib.tex}
 \end{document}
