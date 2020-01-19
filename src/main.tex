@@ -217,7 +217,7 @@ d = ((t_k - t_s) \cdot 34300)/2
 Wynik dzielony jest na dwa, ponieważ otrzymany czas zawiera drogę fali do obiektu i od niego po odbiciu.
 
 Na podstawie odczytanej odległości odbywało się sterowanie kolorem świecenia diody RGB. Co sekundę wykonywany był pomiar i w zależności od odległości dioda świeciła na czerwono lub zielono. Kod odpowiedzialny za to zachowanie znajduje się w listingu \ref{lst:ultrasonicRGB}.
-\begin{lstlisting}[language=Python, caption={Odczytywanie odległości.}, label=lst:ultrasonicRGB]
+\begin{lstlisting}[language=Python, caption={Odczytywanie odległości - sterowanie diodą.}, label=lst:ultrasonicRGB]
 while True: 
     dist = distance()
     if dist < 20:
